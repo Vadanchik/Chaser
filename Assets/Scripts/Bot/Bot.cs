@@ -15,7 +15,7 @@ public class Bot : MonoBehaviour
         _chaser = GetComponent<Chaser>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_chaser.GetDistance() > _distanceToStop)
         {

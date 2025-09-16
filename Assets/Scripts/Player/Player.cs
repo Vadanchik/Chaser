@@ -29,8 +29,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(_playerInput.Player.Move.ReadValue<Vector2>());
-
         _movement.Move(_playerInput.Player.Move.ReadValue<Vector2>());
         _cameraController.Look(_playerInput.Player.Look.ReadValue<Vector2>());
     }

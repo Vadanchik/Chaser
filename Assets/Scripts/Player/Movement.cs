@@ -16,20 +16,13 @@ public class Movement : MonoBehaviour
     {
         if (_characterController != null)
         {
-            if (input.sqrMagnitude < 0.1f)
-                return;
-
             float scaledMoveSpeed = _speed * Time.deltaTime;
 
             Vector3 diretion = transform.forward * input.y + transform.right * input.x;
 
-            if (_characterController.isGrounded)
+            if (input.sqrMagnitude > Mathf.Epsilon)
             {
                 _characterController.Move(diretion * scaledMoveSpeed + Vector3.down);
-            }
-            else
-            {
-                _characterController.Move(_characterController.velocity + Physics.gravity * Time.deltaTime);
             }
         }
     }
