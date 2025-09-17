@@ -1,17 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(RigidbodyMovement))]
+[RequireComponent(typeof(RigidbodyMover))]
 [RequireComponent(typeof(Chaser))]
 public class Bot : MonoBehaviour
 {
     [SerializeField] private float _distanceToStop;
 
-    private RigidbodyMovement _movement;
+    private RigidbodyMover _movement;
     private Chaser _chaser;
 
     private void Awake()
     {
-        _movement = GetComponent<RigidbodyMovement>();
+        _movement = GetComponent<RigidbodyMover>();
         _chaser = GetComponent<Chaser>();
     }
 

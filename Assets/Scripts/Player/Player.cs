@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Mover))]
 [RequireComponent (typeof(CameraController))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Movement _movement;
+    [SerializeField] private Mover _movement;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private Transform _cameraTransform;
 
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInput();
-        _movement = GetComponent<Movement>();
+        _movement = GetComponent<Mover>();
         _cameraController = GetComponent<CameraController>();
     }
 
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         _playerInput.Disable();
     }
 
-    void Update()
+    private void Update()
     {
         _movement.Move(_playerInput.Player.Move.ReadValue<Vector2>());
         _cameraController.Look(_playerInput.Player.Look.ReadValue<Vector2>());
