@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     public void Look(Vector2 input)
     {
-        if (input.sqrMagnitude < 0.1f)
+        if (input.sqrMagnitude < Mathf.Epsilon)
             return;
 
         float scaledSensivity = _sensivity * Time.deltaTime;
